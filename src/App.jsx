@@ -63,7 +63,6 @@ const App = () => {
   const bind = useGesture({
     onWheel: handleGesture,
     onScroll: handleGesture,
-    onDrag: handleGesture,
   });
 
   const [isPlaying, setIsPlaying] = useState(true);
