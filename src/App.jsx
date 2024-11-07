@@ -3,12 +3,13 @@ import Home from "./components/pages/Home";
 import { useGesture } from "@use-gesture/react";
 import { Project } from "./components/pages/Project";
 import { NavBar } from "./components/navbar";
+import { Contact } from "./components/pages/Contact";
 
 const App = () => {
   const [page, setPage] = useState("home");
   const [index, setIndex] = useState(0);
   const isScrollingAllowed = useRef(true);
-  const data = ["home", "project", "about"];
+  const data = ["home", "project", "contact"];
 
   useEffect(() => {
     setPage(data[index]);
@@ -31,8 +32,8 @@ const App = () => {
         );
       case "project":
         return <Project />;
-      case "about":
-        return <div>About</div>;
+      case "contact":
+        return <Contact />;
       default:
         return <Home />;
     }
@@ -62,6 +63,7 @@ const App = () => {
   const bind = useGesture({
     onWheel: handleGesture,
     onScroll: handleGesture,
+    onDrag: handleGesture,
   });
 
   const [isPlaying, setIsPlaying] = useState(true);
