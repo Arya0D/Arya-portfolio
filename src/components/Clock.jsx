@@ -18,7 +18,7 @@ export const Clock = ({ className }) => {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center rounded-3xl bg-transparent lg:bg-[#0c0f11] text-white row-span-1 h-full p-3a",
+        "flex flex-col items-center justify-center rounded-3xl bg-transparent lg:bg-[#0c0f11] text-[#41719E] row-span-1 h-full p-3a",
         className,
       )}
     >

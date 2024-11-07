@@ -14,7 +14,7 @@ export const MusicPlayer = ({
   time,
 }) => {
   return (
-    <div className="bg-[#091927] text-[#076873] h-full rounded-3xl flex flex-col items-center p-3 gap-3">
+    <div className="bg-[#0c0f11] text-[#41719E] h-full rounded-3xl flex flex-col items-center p-3 gap-3">
       <h2 className="text-2xl font-bold">Listen & Chill</h2>
       <div className="bg-sky-799 pointer w-2/3" onClick={handlePause}>
         <img src="/lofi.jpeg" alt="" className="object-fill h-full" />
