@@ -23,11 +23,11 @@ export const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white/30 backdrop-blur flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen bg-[#0c0f11]/30 backdrop-blur flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-[#0c0f11] text-[#41719E]  border-[#41719E] ">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <Avatar className="w-24 h-24">
+            <Avatar className="w-24 h-24 bg-slate-300">
               <AvatarImage
                 src="/placeholder.svg?height=96&width=96"
                 alt="Profile Picture"
@@ -45,7 +45,13 @@ export const Contact = () => {
         <CardContent className="space-y-4">
           <div className="flex justify-center space-x-2">
             {socialLinks.map((link) => (
-              <Button key={link.name} variant="outline" size="icon" asChild>
+              <Button
+                key={link.name}
+                variant="outline"
+                size="icon"
+                asChild
+                className=" text-[#41719E] bg-[#0c0f11] border-2 border-[#41719E] hover:bg-[#41719E]"
+              >
                 <a
                   href={link.url}
                   target="_blank"

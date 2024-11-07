@@ -71,8 +71,12 @@ const App = () => {
   const [duration, setDuration] = useState(0);
 
   const song = [
-    { title: "Color Your Night", artist: "-", url: "/song1.mp3" },
-    { title: "3:12", artist: "Suisei", url: "/song2.mp3" },
+    {
+      title: "Color Your Night [cover]",
+      artist: "Pealeaf",
+      url: "/song1.mp3",
+    },
+    { title: "3:12", artist: "TAKU INOE", url: "/song2.mp3" },
   ];
 
   const selectedMusic = song[musicIndex];

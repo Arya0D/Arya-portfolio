@@ -22,7 +22,7 @@ export const Clock = ({ className }) => {
         className,
       )}
     >
-      <div className="text-9xl lg:hidden flex flex-col justify-center items-center">
+      <div className="text-9xl text-white lg:hidden flex flex-col justify-center items-center">
         <h1>{splitTime[0]}</h1>
         <h1>{splitTime[1]}</h1>
       </div>
