@@ -12,7 +12,7 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 export const Project = () => {
   return (
     <div className="h-screen w-full p-2 bg-[#0c0f11]/30  backdrop-blur text-[#41719E] flex justify-center items-center">
-      <div className=" w-2/3">
+      <div className=" w-2/3 flex-shrink-0">
         <Carousel>
           <CarouselContent>
             <CarouselItem>
