@@ -5,6 +5,8 @@ import { Project } from "./components/pages/Project";
 import { NavBar } from "./components/navbar";
 import { Contact } from "./components/pages/Contact";
 
+import { useSwipeable } from "react-swipeable";
+
 const App = () => {
   const [page, setPage] = useState("home");
   const [index, setIndex] = useState(0);
@@ -63,6 +65,11 @@ const App = () => {
   const bind = useGesture({
     onWheel: handleGesture,
     onScroll: handleGesture,
+  });
+
+  const swipe = useSwipeable({
+    onSwipedDown: (eventData) => handleGesture(eventData),
+    onSwipedUp: (eventData) => handleGesture(eventData),
   });
 
   const [isPlaying, setIsPlaying] = useState(true);
@@ -134,7 +141,7 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden" {...bind()}>
+    <div className="w-full h-screen overflow-hidden" {...bind()} {...swipe}>
       <NavBar onClick={handleClick} display={data[index]} />
       <div>{renderPage()}</div>
     </div>

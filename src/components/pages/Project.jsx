@@ -22,7 +22,7 @@ export const Project = () => {
                 <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
                 <div className="w-4 h-4 bg-red-500 rounded-full"></div>
               </div>
-              <div className="w-full h-[400px] object-cover bg-cover bg-center bg-[url(/project1.png)]"></div>
+              <div className="w-full h-[200px] object-cover bg-cover bg-center bg-[url(/project1.png)]"></div>
               <div className="bg-black w-full mt-2 p-2 flex justify-between items-center">
                 <h1 className="font-bold">React.js Todo List </h1>
                 <div className="flex gap-3">
