@@ -4,7 +4,6 @@ import { useGesture } from "@use-gesture/react";
 import { Project } from "./components/pages/Project";
 import { NavBar } from "./components/navbar";
 import { Contact } from "./components/pages/Contact";
-
 import { useSwipeable } from "react-swipeable";
 
 const App = () => {
@@ -67,7 +66,7 @@ const App = () => {
     onScroll: handleGesture,
   });
 
-  const swipe = useSwipeable({
+  const swipeHandlers = useSwipeable({
     onSwipedDown: (eventData) => handleGesture(eventData),
     onSwipedUp: (eventData) => handleGesture(eventData),
   });
@@ -78,11 +77,7 @@ const App = () => {
   const [duration, setDuration] = useState(0);
 
   const song = [
-    {
-      title: "Color Your Night [cover]",
-      artist: "Pealeaf",
-      url: "/song1.mp3",
-    },
+    { title: "Color Your Night [cover]", artist: "Pealeaf", url: "/song1.mp3" },
     { title: "3:12", artist: "TAKU INOE", url: "/song2.mp3" },
   ];
 
@@ -141,9 +136,11 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden" {...bind()} {...swipe}>
-      <NavBar onClick={handleClick} display={data[index]} />
-      <div>{renderPage()}</div>
+    <div className="w-full h-screen overflow-hidden" {...bind()}>
+      <div {...swipeHandlers} className="w-full h-full">
+        <NavBar onClick={handleClick} display={data[index]} />
+        <div>{renderPage()}</div>
+      </div>
     </div>
   );
 };
