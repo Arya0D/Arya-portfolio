@@ -64,6 +64,15 @@ const App = () => {
     onWheel: ({ movement }) => handleGesture(movement[1] > 0 ? "down" : "up"),
     onScroll: ({ movement }) => handleGesture(movement[1] > 0 ? "down" : "up"),
   });
+
+  const swipeHandlers = useSwipeable({
+    onSwipedDown: () => handleGesture("up"),
+    onSwipedUp: () => handleGesture("down"),
+    delta: 50, // Minimum swipe distance to trigger a page change
+    preventDefaultTouchmoveEvent: true, // Prevent default browser scrolling behavior on swipe
+    trackMouse: true, // Allow swipe handling with mouse
+  });
+
   const [isPlaying, setIsPlaying] = useState(true);
   const [musicIndex, setMusicIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -129,7 +138,11 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-dvh overflow-hidden touch-none" {...bind()}>
+    <div
+      className="w-full h-dvh overflow-hidden touch-none pb-6"
+      {...bind()}
+      {...swipeHandlers}
+    >
       <div className="w-full h-full">
         <NavBar onClick={handleClick} display={data[index]} />
         <div>{renderPage()}</div>
