@@ -45,12 +45,11 @@ const App = () => {
     setIndex(data.indexOf(newPage));
   };
 
-  const handleGesture = (state) => {
+  const handleGesture = (direction) => {
     if (!isScrollingAllowed.current) return;
-    const isScrollingDown = state.movement[1] > 0;
 
     setIndex((prevIndex) =>
-      isScrollingDown
+      direction === "down"
         ? Math.min(prevIndex + 1, data.length - 1)
         : Math.max(prevIndex - 1, 0),
     );
@@ -62,13 +61,16 @@ const App = () => {
   };
 
   const bind = useGesture({
-    onWheel: handleGesture,
-    onScroll: handleGesture,
+    onWheel: ({ movement }) => handleGesture(movement[1] > 0 ? "down" : "up"),
+    onScroll: ({ movement }) => handleGesture(movement[1] > 0 ? "down" : "up"),
   });
 
   const swipeHandlers = useSwipeable({
-    onSwipedDown: (eventData) => handleGesture(eventData),
-    onSwipedUp: (eventData) => handleGesture(eventData),
+    onSwipedDown: () => handleGesture("down"),
+    onSwipedUp: () => handleGesture("up"),
+    delta: 50, // Minimum swipe distance to trigger a page change
+    preventDefaultTouchmoveEvent: true, // Prevent default browser scrolling behavior on swipe
+    trackMouse: true, // Allow swipe handling with mouse
   });
 
   const [isPlaying, setIsPlaying] = useState(true);
@@ -130,7 +132,7 @@ const App = () => {
   };
 
   const handleSliderChange = (value) => {
-    const newTime = (value[0] / 100) * duration;
+    const newTime = (value[1] / 100) * duration;
     music.current.currentTime = newTime;
     setCurrentTime(newTime);
   };
