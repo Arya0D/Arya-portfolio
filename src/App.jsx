@@ -68,7 +68,7 @@ const App = () => {
   const swipeHandlers = useSwipeable({
     onSwipedDown: () => handleGesture("up"),
     onSwipedUp: () => handleGesture("down"),
-    delta: 50, // Minimum swipe distance to trigger a page change
+    delta: 100, // Minimum swipe distance to trigger a page change
     preventDefaultTouchmoveEvent: true, // Prevent default browser scrolling behavior on swipe
     trackMouse: true, // Allow swipe handling with mouse
   });
@@ -139,7 +139,7 @@ const App = () => {
 
   return (
     <div
-      className="w-full h-dvh overflow-hidden touch-none mb-5 md:mb-0"
+      className="w-full h-dvh overflow-hidden touch-none"
       {...bind()}
       {...swipeHandlers}
     >
