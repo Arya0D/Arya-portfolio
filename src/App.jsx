@@ -66,8 +66,8 @@ const App = () => {
   });
 
   const swipeHandlers = useSwipeable({
-    onSwipedDown: () => handleGesture("down"),
-    onSwipedUp: () => handleGesture("up"),
+    onSwipedDown: () => handleGesture("up"),
+    onSwipedUp: () => handleGesture("down"),
     delta: 50, // Minimum swipe distance to trigger a page change
     preventDefaultTouchmoveEvent: true, // Prevent default browser scrolling behavior on swipe
     trackMouse: true, // Allow swipe handling with mouse
@@ -138,8 +138,12 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden" {...bind()}>
-      <div {...swipeHandlers} className="w-full h-full">
+    <div
+      className="w-full h-screen overflow-hidden"
+      {...bind()}
+      {...swipeHandlers}
+    >
+      <div className="w-full h-full">
         <NavBar onClick={handleClick} display={data[index]} />
         <div>{renderPage()}</div>
       </div>
