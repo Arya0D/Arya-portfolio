@@ -129,11 +129,7 @@ const App = () => {
   };
 
   return (
-    <div
-      className="w-full h-dvh overflow-hidden touch-none"
-      {...bind()}
-      {...swipeHandlers}
-    >
+    <div className="w-full h-dvh overflow-hidden touch-none" {...bind()}>
       <div className="w-full h-full">
         <NavBar onClick={handleClick} display={data[index]} />
         <div>{renderPage()}</div>
