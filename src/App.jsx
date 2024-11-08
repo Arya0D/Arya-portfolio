@@ -139,7 +139,7 @@ const App = () => {
 
   return (
     <div
-      className="w-full h-svh overflow-hidden touch-none pb-6"
+      className="w-full h-lvh overflow-hidden touch-none pb-6"
       {...bind()}
       {...swipeHandlers}
     >
