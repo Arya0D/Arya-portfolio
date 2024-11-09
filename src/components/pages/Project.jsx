@@ -1,5 +1,7 @@
 import { cn } from "../../lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "../ui/button";
+import { Github } from "lucide-react";
 
 export const Project = () => {
   const data = [
@@ -7,30 +9,44 @@ export const Project = () => {
       title: "To Do List",
       desc: "Todo list app built using React.js and a framework",
       img: "/project1.png",
+      link: {
+        repo: "https://github.com/Arya0D/Todo-List",
+        view: "https://todo-list-six-roan.vercel.app/",
+      },
     },
     {
       title: "Test Project",
       desc: "Sample description text for test project.",
       img: "",
+      link: {
+        repo: "/a",
+        view: "/",
+      },
     },
     {
       title: "Test Project",
       desc: "Sample description text for test project.",
       img: "",
+      link: {
+        repo: "/b",
+        view: "/",
+      },
     },
   ];
 
   const [dataIndex, setDataIndex] = useState(0);
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
 
   const currentData = data[dataIndex];
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDataIndex((prevIndex) => (prevIndex + 1) % data.length);
-    }, 4000); // Change every 3 seconds
 
-    // Clear interval on component unmount
-    return () => clearInterval(interval);
-  }, [data.length]);
+  useEffect(() => {
+    if (!isMouseEnter) {
+      const interval = setInterval(() => {
+        setDataIndex((prevIndex) => (prevIndex + 1) % data.length);
+      }, 3500);
+      return () => clearInterval(interval);
+    }
+  }, [data.length, isMouseEnter]);
 
   return (
     <div className="h-full w-full grid grid-cols-3 p-2 gap-2">
@@ -57,12 +73,31 @@ export const Project = () => {
           })}
         </div>
       </div>
-      <div className="h-full col-span-2">
+      <div
+        className="h-full col-span-2 relative group"
+        onMouseEnter={() => {
+          setIsMouseEnter(true);
+        }}
+        onMouseLeave={() => {
+          setIsMouseEnter(false);
+        }}
+      >
         <img
           src={currentData.img}
           alt={currentData.title}
           className="w-full h-full object-cover"
         />
+
+        <div className="absolute flex items-center justify-center z-10 top-0 w-full h-full bg-transparent hover:bg-black/30 transition group gap-3">
+          <a href={currentData.link.repo} target="_blank">
+            <Button className="hidden group-hover:flex items-center">
+              <Github /> Repository
+            </Button>
+          </a>
+          <a href={currentData.link.view} target="_blank">
+            <Button className="hidden group-hover:block">View</Button>
+          </a>
+        </div>
       </div>
     </div>
   );
