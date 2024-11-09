@@ -18,7 +18,7 @@ function Home({
     <div className="h-screen max-w-[1560px] lg:grid grid-cols-4 gap-2 p-2">
       <div className="w-full h-full col-span-3 bg-[url('/anime.jpg')] bg-center bg-cover rounded-xl flex lg:justify-end flex-col p-2">
         <Clock className={"lg:hidden"} />
-        <div className="w-56 md:w-72 bg-[#0c0f11] text-[#41719E] rounded-xl p-3 gap-3 flex flex-col justify-center items-center ml-3 mb-3">
+        <div className="w-56 md:w-72 bg-[#0c0f11] text-[#41719E] rounded-xl p-3 gap-3 flex flex-col justify-center items-center ml-3 m">
           <div className="text-center">
             <h1 className="text-4xl md:text-7xl">ARYA</h1>
             <p className="md:text-3xl">WIJAYA KUSUMAH</p>
