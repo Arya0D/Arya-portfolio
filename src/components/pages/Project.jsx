@@ -13,6 +13,11 @@ export const Project = () => {
       desc: "Sample description text for test project.",
       img: "",
     },
+    {
+      title: "Test Project",
+      desc: "Sample description text for test project.",
+      img: "",
+    },
   ];
 
   const [dataIndex, setDataIndex] = useState(0);
@@ -21,14 +26,11 @@ export const Project = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDataIndex((prevIndex) => (prevIndex + 1) % data.length);
-    }, 3000); // Change every 3 seconds
+    }, 4000); // Change every 3 seconds
 
     // Clear interval on component unmount
     return () => clearInterval(interval);
   }, [data.length]);
-  const handleClick = () => {
-    setDataIndex((prevIndex) => (prevIndex + 1) % data.length);
-  };
 
   return (
     <div className="h-full w-full grid grid-cols-3 p-2 gap-2">
@@ -43,7 +45,9 @@ export const Project = () => {
             return (
               <div
                 key={index}
-                onClick={handleClick}
+                onClick={() => {
+                  setDataIndex(index);
+                }}
                 className={cn(
                   index === dataIndex ? "bg-sky-500" : "bg-slate-400",
                   " w-6 h-4",

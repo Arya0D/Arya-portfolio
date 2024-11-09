@@ -1,18 +1,20 @@
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "./ui/drawer";
 import { cn } from "../lib/utils";
 
 import { NavClock } from "./NavClock";
 import { Button } from "./ui/button";
 import { MusicPlayer } from "./MusicPlayer";
+
+const nav = [
+  {
+    title: "Home",
+    dataValue: "home",
+  },
+  { title: "Project", dataValue: "project" },
+  {
+    title: "Contact",
+    dataValue: "contact",
+  },
+];
 
 export const NavBar = ({ onClick, display }) => {
   return (
