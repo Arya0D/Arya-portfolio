@@ -143,10 +143,8 @@ const App = () => {
       {...bind()}
       {...swipeHandlers}
     >
-      <div className="w-full h-screen">
-        <NavBar onClick={handleClick} display={data[index]} />
-        {renderPage()}
-      </div>
+      <NavBar onClick={handleClick} display={data[index]} />
+      {renderPage()}
     </div>
   );
 };

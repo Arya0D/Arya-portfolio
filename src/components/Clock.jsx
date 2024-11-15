@@ -8,7 +8,7 @@ export const Clock = ({ className }) => {
     ":" +
     String(date.getMinutes()).padStart(2, "0");
   const currDate =
-    date.getDay() +
+    date.getDate() +
     " " +
     date.toLocaleString("id", { month: "long" }) +
     " " +
