@@ -1,25 +1,47 @@
 import { cn } from "../lib/utils";
 
-import { NavClock } from "./NavClock";
-import { Button } from "./ui/button";
-import { MusicPlayer } from "./MusicPlayer";
-
-const nav = [
-  {
-    title: "Home",
-    dataValue: "home",
-  },
-  { title: "Project", dataValue: "project" },
-  {
-    title: "Contact",
-    dataValue: "contact",
-  },
-];
+import { Contact, Home, Menu, MenuIcon, TabletSmartphone } from "lucide-react";
+import { useState } from "react";
 
 export const NavBar = ({ onClick, display }) => {
+  const nav = [
+    {
+      title: (
+        <Home
+          data-value="home"
+          onClick={onClick}
+          className="hover:cursor-pointer"
+        />
+      ),
+    },
+    {
+      title: (
+        <TabletSmartphone
+          data-value="project"
+          onClick={onClick}
+          className="hover:cursor-pointer"
+        />
+      ),
+    },
+    {
+      title: (
+        <Contact
+          data-value="contact"
+          onClick={onClick}
+          className="hover:cursor-pointer"
+        />
+      ),
+    },
+  ];
+
+  const [menu, setMenu] = useState(false);
+  const handleClick = () => {
+    setMenu((prevMenu) => !prevMenu);
+  };
+
   return (
-    <nav className="w-full max-w-screen fixed z-10 top-5 px-5 flex justify-between items-center">
-      <ul className="flex gap-2 bg-slate-800/30 backdrop-blur-sm w-fit p-4 text-white rounded-full">
+    <nav className="w-full max-w-screen fixed z-50 top-5 px-5 flex justify-between items-center">
+      <ul className="hidden lg:flex gap-2 bg-slate-800/30 backdrop-blur-sm w-fit p-4 text-white rounded-full">
         <li onClick={onClick} data-value="home" className="cursor-pointer">
           Home
         </li>
@@ -30,15 +52,19 @@ export const NavBar = ({ onClick, display }) => {
           Contact
         </li>
       </ul>
-      <ul
-        className={cn(
-          display == "home"
-            ? "hidden"
-            : "flex gap-2 bg-[#0c0f11] text-[#41719E]  p-3 rounded",
-        )}
-      >
-        <li>
-          <NavClock />
+      <ul className="lg:hidden">
+        <li className="bg-slate-800/30 backdrop-blur-sm w-fit p-3 rounded text-white">
+          <MenuIcon onClick={handleClick} />
+          <ul
+            className={cn(
+              menu ? "flex flex-col gap-2" : "hidden",
+              "transition-all duration-300 ease-in-out mt-3",
+            )}
+          >
+            {nav.map((menu) => {
+              return <li key={menu.dataValue}>{menu.title}</li>;
+            })}
+          </ul>
         </li>
       </ul>
     </nav>

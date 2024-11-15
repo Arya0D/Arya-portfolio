@@ -138,14 +138,22 @@ const App = () => {
   };
 
   return (
-    <div
-      className="w-full h-screen overflow-hidden touch-none"
-      {...bind()}
-      {...swipeHandlers}
-    >
-      <NavBar onClick={handleClick} display={data[index]} />
-      {renderPage()}
-    </div>
+    <>
+      <div
+        className="hidden lg:block w-full h-screen overflow-hidden touch-none"
+        {...bind()}
+        {...swipeHandlers}
+      >
+        <NavBar onClick={handleClick} display={data[index]} />
+        {renderPage()}
+      </div>
+      <div className="lg:hidden">
+        <NavBar />
+        <Home />
+        <Project />
+        <Contact />
+      </div>
+    </>
   );
 };
 

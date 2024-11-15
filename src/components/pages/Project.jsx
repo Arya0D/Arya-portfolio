@@ -49,8 +49,8 @@ export const Project = () => {
   }, [data.length, isMouseEnter]);
 
   return (
-    <div className="h-full w-full grid lg:grid-cols-3 p-2 gap-2">
-      <div className="col-span-1 flex flex-col p-2 text-start justify-center items-center bg-[url(/projectbg.webp)] bg-center text-white">
+    <div className="h-screen flex flex-col-reverse lg:grid lg:grid-cols-3 p-2 gap-2">
+      <div className="col-span-1 w-full flex flex-col p-2 text-start justify-center items-center bg-[url(/projectbg.webp)] bg-center text-white">
         <div className="w-full flex flex-col gap-1 h-fit backdrop-blur rounded p-3">
           <h2 className="text-6xl font-bold">Project</h2>
           <h3 className="text-4xl">{currentData.title}</h3>
