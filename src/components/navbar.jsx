@@ -22,6 +22,7 @@ export const NavBar = ({ onClick, display }) => {
           className="hover:cursor-pointer"
         />
       ),
+      dataValue: "project",
     },
     {
       title: (

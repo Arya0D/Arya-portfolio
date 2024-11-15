@@ -147,7 +147,7 @@ const App = () => {
         <NavBar onClick={handleClick} display={data[index]} />
         {renderPage()}
       </div>
-      <div className="lg:hidden">
+      <div className="lg:hidden min-h-screen">
         <NavBar />
         <Home />
         <Project />

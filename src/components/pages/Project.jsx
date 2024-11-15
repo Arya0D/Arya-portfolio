@@ -1,7 +1,7 @@
 import { cn } from "../../lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
-import { Github } from "lucide-react";
+import { Eye, Github } from "lucide-react";
 
 export const Project = () => {
   const data = [
@@ -49,7 +49,7 @@ export const Project = () => {
   }, [data.length, isMouseEnter]);
 
   return (
-    <div className="h-screen flex flex-col-reverse lg:grid lg:grid-cols-3 p-2 gap-2">
+    <div className="h-screen flex flex-col-reverse lg:grid lg:grid-cols-3 p-2 gap-2 bg-slate-800/40  backdrop-blur overflow-hidden">
       <div className="col-span-1 w-full flex flex-col p-2 text-start justify-center items-center bg-[url(/projectbg.webp)] bg-center text-white">
         <div className="w-full flex flex-col gap-1 h-fit backdrop-blur rounded p-3">
           <h2 className="text-6xl font-bold">Project</h2>
@@ -95,7 +95,10 @@ export const Project = () => {
             </Button>
           </a>
           <a href={currentData.link.view} target="_blank">
-            <Button className="hidden group-hover:block">View</Button>
+            <Button className="hidden group-hover:flex ">
+              <Eye />
+              View
+            </Button>
           </a>
         </div>
       </div>
